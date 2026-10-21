@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nuestra Boda</title>
+
+<meta name="theme-color" content="#405446">
+
+<style>
+
+/* =====================================================
+   FUENTES
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+:root {
+
+    --verde: #405446;
+    --verde-claro: #718273;
+    --dorado: #b49a68;
+    --crema: #f8f5ed;
+    --texto: #344037;
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--crema);
+
+    color: var(--texto);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 19px;
+
+    overflow-x: hidden;
+
+}
+
+
+img {
+
+    max-width: 100%;
+
+}
+
+
+/* =====================================================
+   PANTALLA INICIAL
+===================================================== */
+
+.pantalla-inicial {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            rgba(30,40,32,.25),
+            rgba(30,40,32,.68)
+        ),
+
+        url("3.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+.pantalla-inicial.ocultar {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.inicio-contenido {
+
+    width: 92%;
+
+    max-width: 750px;
+
+    color: white;
+
+}
+
+
+.inicio-pequeno {
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.inicio-script {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(52px, 10vw, 90px);
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+
+}
+
+
+.inicio-titulo {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(55px, 11vw, 105px);
+
+    font-weight: 500;
+
+    margin-bottom: 25px;
+
+}
+
+
+.inicio-linea {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: white;
+
+    margin: 28px auto;
+
+}
+
+
+.inicio-texto {
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+    max-width: 680px;
+
+    margin: auto;
+
+}
+
+
+.boton-abrir {
+
+    margin-top: 40px;
+
+    padding: 17px 42px;
+
+    border: 1px solid white;
+
+    background:
+        rgba(255,255,255,.12);
+
+    color: white;
+
+    border-radius: 50px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(4px);
+
+    transition: .3s;
+
+}
+
+
+.boton-abrir:hover {
+
+    background: white;
+
+    color: var(--verde);
+
+}
+
+
+/* =====================================================
+   BOTÓN DE MÚSICA SUPERIOR
+===================================================== */
+
+.control-musica {
+
+    position: fixed;
+
+    top: 22px;
+
+    right: 25px;
+
+    z-index: 9500;
+
+    border: 1px solid
+        rgba(255,255,255,.7);
+
+    border-radius: 50px;
+
+    padding:
+        10px 18px;
+
+    background:
+        rgba(64,84,70,.88);
+
+    color: white;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.15);
+
+    transition: .3s;
+
+}
+
+
+.control-musica:hover {
+
+    background:
+        rgba(48,67,53,.95);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =====================================================
+   MARIPOSAS GIF — DECORACIÓN ELEGANTE
+===================================================== */
+
+.mariposas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 800;
+}
+
+.mariposa {
+    position: absolute;
+    left: -120px;
+    width: clamp(70px, 8vw, 110px);
+    height: auto;
+    opacity: .38;
+    filter: saturate(.88);
+    animation: vueloMariposa linear infinite;
+    will-change: transform;
+}
+
+.mariposa:nth-child(1) {
+    top: 8%;
+    width: clamp(72px, 7vw, 105px);
+    animation-duration: 24s;
+    animation-delay: -3s;
+}
+
+.mariposa:nth-child(2) {
+    top: 26%;
+    width: clamp(80px, 8vw, 115px);
+    animation-duration: 31s;
+    animation-delay: -12s;
+}
+
+.mariposa:nth-child(3) {
+    top: 47%;
+    width: clamp(68px, 7vw, 100px);
+    animation-duration: 27s;
+    animation-delay: -18s;
+}
+
+.mariposa:nth-child(4) {
+    top: 68%;
+    width: clamp(82px, 8vw, 120px);
+    animation-duration: 34s;
+    animation-delay: -8s;
+}
+
+.mariposa:nth-child(5) {
+    top: 84%;
+    width: clamp(70px, 7vw, 105px);
+    animation-duration: 29s;
+    animation-delay: -21s;
+}
+
+@keyframes vueloMariposa {
+    0% {
+        transform: translate3d(-12vw, 0, 0) rotate(-7deg);
+    }
+    20% {
+        transform: translate3d(18vw, -45px, 0) rotate(8deg);
+    }
+    40% {
+        transform: translate3d(43vw, 35px, 0) rotate(-6deg);
+    }
+    60% {
+        transform: translate3d(68vw, -35px, 0) rotate(7deg);
+    }
+    80% {
+        transform: translate3d(92vw, 30px, 0) rotate(-5deg);
+    }
+    100% {
+        transform: translate3d(120vw, -15px, 0) rotate(5deg);
+    }
+}
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.seccion {
+
+    padding:
+        110px 20px;
+
+}
+
+
+.contenedor {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+}
+
+
+.centro {
+
+    text-align: center;
+
+}
+
+
+.etiqueta {
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: var(--verde-claro);
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+}
+
+
+h2 {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(48px, 8vw, 78px);
+
+    font-weight: normal;
+
+    color: var(--verde);
+
+    line-height: 1.1;
+
+}
+
+
+.adorno {
+
+    color: var(--dorado);
+
+    font-size: 32px;
+
+    margin: 25px 0;
+
+}
+
+
+.texto {
+
+    max-width: 820px;
+
+    margin: auto;
+
+    font-size: 21px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            rgba(25,35,28,.18),
+            rgba(25,35,28,.55)
+        ),
+
+        url("3.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    position: relative;
+
+}
+
+
+.hero-contenido {
+
+    max-width: 900px;
+
+    padding: 45px 25px;
+
+    color: white;
+
+}
+
+
+.hero-pequeno {
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 15px;
+
+}
+
+
+.hero-script {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(52px, 9vw, 95px);
+
+    margin-top: 18px;
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(65px, 11vw, 115px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    margin: 15px 0;
+
+}
+
+
+.hero-linea {
+
+    width: 90px;
+
+    height: 1px;
+
+    background: white;
+
+    margin: 30px auto;
+
+}
+
+
+.hero-texto {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: 21px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   HISTORIA
+===================================================== */
+
+.historia {
+
+    background: #fffdf8;
+
+}
+
+
+.historia-texto {
+
+    max-width: 880px;
+
+    margin: auto;
+
+    font-size: 22px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+.contador {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    max-width: 850px;
+
+    margin: 60px auto 0;
+
+    gap: 25px;
+
+}
+
+
+.numero {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(42px, 7vw, 70px);
+
+    color: var(--verde);
+
+    font-weight: 500;
+
+}
+
+
+.nombre-tiempo {
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+
+    color: var(--verde-claro);
+
+    margin-top: 8px;
+
+}
+
+
+/* =====================================================
+   FECHA
+===================================================== */
+
+.fecha {
+
+    padding:
+        110px 20px;
+
+    text-align: center;
+
+    background:
+        #eee9dd;
+
+}
+
+
+.fecha-grande {
+
+    font-size:
+        clamp(50px, 9vw, 100px);
+
+    color: var(--verde);
+
+    font-weight: normal;
+
+}
+
+
+.fecha-texto {
+
+    font-size: 21px;
+
+    margin-top: 18px;
+
+}
+
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+
+.eventos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 80px;
+
+    max-width: 950px;
+
+    margin: 70px auto 0;
+
+}
+
+
+.evento {
+
+    text-align: center;
+
+    padding: 20px;
+
+}
+
+
+.icono {
+
+    font-size: 45px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.hora {
+
+    font-size: 55px;
+
+    color: var(--verde);
+
+}
+
+
+.nombre-evento {
+
+    margin:
+        15px 0;
+
+    color: var(--dorado);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 14px;
+
+}
+
+
+.evento p {
+
+    font-size: 20px;
+
+    line-height: 1.9;
+
+    color: #666;
+
+}
+
+
+/* =====================================================
+   DRESS CODE
+===================================================== */
+
+.dress {
+
+    background:
+        #fffdf8;
+
+}
+
+
+.dress-imagen {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 55px auto 0;
+
+}
+
+
+/* =====================================================
+   GALERÍA
+===================================================== */
+
+.galeria {
+
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+
+}
+
+
+.galeria img {
+
+    width: 100%;
+
+    height: 480px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.galeria img:last-child {
+
+    grid-column:
+        span 2;
+
+    height: 650px;
+
+}
+
+
+/* =====================================================
+   LLUVIA DE SOBRES
+===================================================== */
+
+.sobres {
+
+    text-align: center;
+
+}
+
+
+.sobre-icono {
+
+    font-size: 60px;
+
+    margin: 30px 0;
+
+}
+
+
+.sobre-texto {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    font-size: 21px;
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   SIN NIÑOS
+===================================================== */
+
+.adultos {
+
+    text-align: center;
+
+    background:
+        #eee9dd;
+
+    padding:
+        100px 20px;
+
+}
+
+
+.adultos p {
+
+    max-width: 700px;
+
+    margin: 25px auto 0;
+
+    font-size: 21px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   CONFIRMACIÓN
+===================================================== */
+
+.confirmacion {
+
+    text-align: center;
+
+    background:
+        #fffdf8;
+
+}
+
+
+.confirmacion-texto {
+
+    max-width: 700px;
+
+    margin:
+        25px auto 40px;
+
+    font-size: 21px;
+
+    line-height: 1.9;
+
+}
+
+
+.confirmar-form {
+
+    max-width: 550px;
+
+    margin: auto;
+
+}
+
+
+.confirmar-form input {
+
+    width: 100%;
+
+    padding: 18px 8px;
+
+    border: none;
+
+    border-bottom:
+        1px solid #aaa;
+
+    background: transparent;
+
+    outline: none;
+
+    text-align: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 21px;
+
+}
+
+
+.confirmar-form input:focus {
+
+    border-bottom-color:
+        var(--verde);
+
+}
+
+
+.boton-confirmar {
+
+    margin-top: 35px;
+
+    padding:
+        17px 42px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        var(--verde);
+
+    color: white;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.boton-confirmar:hover {
+
+    background:
+        #304335;
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:
+        90px 20px;
+
+    text-align: center;
+
+    background:
+        #35483b;
+
+    color: white;
+
+}
+
+
+.footer-script {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        65px;
+
+}
+
+
+footer p {
+
+    margin-top: 18px;
+
+    font-size: 18px;
+
+    opacity: .9;
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media(max-width:700px) {
+
+    body {
+
+        font-size: 18px;
+
+    }
+
+
+    .seccion {
+
+        padding:
+            80px 18px;
+
+    }
+
+
+    .control-musica {
+
+        top: 15px;
+
+        right: 15px;
+
+        padding:
+            9px 14px;
+
+        font-size: 14px;
+
+    }
+
+
+    .contador {
+
+        gap: 8px;
+
+    }
+
+
+    .numero {
+
+        font-size: 34px;
+
+    }
+
+
+    .nombre-tiempo {
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .eventos {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+
+    }
+
+
+    .hora {
+
+        font-size: 48px;
+
+    }
+
+
+    .galeria {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .galeria img,
+    .galeria img:last-child {
+
+        grid-column:
+            span 1;
+
+        height: 400px;
+
+    }
+
+
+    .hero {
+
+        background-attachment:
+            scroll;
+
+    }
+
+
+    .hero-texto {
+
+        font-size: 19px;
+
+    }
+
+
+    .inicio-texto {
+
+        font-size: 19px;
+
+    }
+
+
+    .historia-texto {
+
+        font-size: 20px;
+
+    }
+
+
+    .texto {
+
+        font-size: 20px;
+
+    }
+
+}
+
+
+/* =====================================================
+   ACABADO PREMIUM
+===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 790;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(180,154,104,.08), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(64,84,70,.06), transparent 30%);
+}
+
+.seccion,
+.fecha,
+.adultos,
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.seccion::after,
+.fecha::after,
+.adultos::after {
+    content: "✦";
+    position: absolute;
+    right: 6%;
+    bottom: 8%;
+    color: rgba(180,154,104,.16);
+    font-size: 70px;
+    pointer-events: none;
+}
+
+.etiqueta {
+    position: relative;
+}
+
+.etiqueta::before,
+.etiqueta::after {
+    content: "—";
+    margin: 0 12px;
+    color: var(--dorado);
+}
+
+.fecha {
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,.55), transparent 55%),
+        #eee9dd;
+    border-top: 1px solid rgba(180,154,104,.25);
+    border-bottom: 1px solid rgba(180,154,104,.25);
+}
+
+.fecha-grande {
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 8px;
+    text-shadow: 0 4px 18px rgba(64,84,70,.08);
+}
+
+.fecha-texto {
+    color: var(--verde-claro);
+    letter-spacing: 1px;
+}
+
+.contador > div {
+    padding: 25px 10px;
+    border: 1px solid rgba(180,154,104,.24);
+    border-radius: 20px;
+    background: rgba(255,255,255,.38);
+    box-shadow: 0 12px 35px rgba(52,64,55,.05);
+    backdrop-filter: blur(5px);
+}
+
+.evento {
+    padding: 38px 25px;
+    border: 1px solid rgba(180,154,104,.22);
+    border-radius: 24px;
+    background: rgba(255,255,255,.38);
+    box-shadow: 0 15px 45px rgba(52,64,55,.06);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.evento:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 55px rgba(52,64,55,.11);
+}
+
+.galeria {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(52,64,55,.10);
+}
+
+.galeria img {
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.025);
+    filter: brightness(1.04);
+}
+
+.confirmar-form {
+    padding: 35px;
+    border: 1px solid rgba(180,154,104,.25);
+    border-radius: 24px;
+    background: rgba(255,255,255,.48);
+    box-shadow: 0 18px 45px rgba(52,64,55,.06);
+    backdrop-filter: blur(5px);
+}
+
+.boton-confirmar,
+.boton-abrir {
+    box-shadow: 0 10px 28px rgba(52,64,55,.16);
+}
+
+@media (max-width: 700px) {
+    .mariposa {
+        opacity: .32;
+        width: 70px;
+    }
+
+    .fecha-grande {
+        letter-spacing: 4px;
+    }
+
+    .confirmar-form {
+        padding: 25px 18px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PANTALLA DE ENTRADA
+===================================================== -->
+
+<div
+    class="pantalla-inicial"
+    id="pantallaInicial">
+
+
+    <div class="inicio-contenido">
+
+
+        <div class="inicio-pequeno">
+
+            Una historia de amor
+
+        </div>
+
+
+        <div class="inicio-script">
+
+            Con la bendición de Dios
+
+        </div>
+
+
+        <div class="inicio-titulo">
+
+            Nuestra Boda
+
+        </div>
+
+
+        <div class="inicio-linea"></div>
+
+
+        <p class="inicio-texto">
+
+            Nuestra historia comenzó hace cuatro años,
+            con Dios como centro de nuestro amor.
+            Juntos hemos crecido, superado desafíos
+            y aprendido a elegirnos cada día.
+
+        </p>
+
+
+        <button
+            class="boton-abrir"
+            id="botonAbrir">
+
+            Abrir invitación ♥️
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
+
+<audio
+    id="musica"
+    src="musica.mp3"
+    loop
+    preload="auto">
+</audio>
+
+
+
+<!-- =====================================================
+     CONTROL DE MÚSICA SUPERIOR
+===================================================== -->
+
+<button
+    class="control-musica"
+    id="controlMusica"
+    aria-label="Controlar música">
+
+    🔊 Música
+
+</button>
+
+
+
+<!-- =====================================================
+     MARIPOSAS
+===================================================== -->
+
+<div class="mariposas" aria-hidden="true">
+
+    <img class="mariposa" src="mariposa.gif" alt="">
+
+    <img class="mariposa" src="mariposa.gif" alt="">
+
+    <img class="mariposa" src="mariposa.gif" alt="">
+
+    <img class="mariposa" src="mariposa.gif" alt="">
+
+    <img class="mariposa" src="mariposa.gif" alt="">
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-contenido">
+
+
+        <div class="hero-pequeno">
+
+            El comienzo de una nueva historia
+
+        </div>
+
+
+        <div class="hero-script">
+
+            Con la bendición de Dios
+
+        </div>
+
+
+        <h1>
+
+            Nuestra Boda
+
+        </h1>
+
+
+        <div class="hero-linea"></div>
+
+
+        <p class="hero-texto">
+
+            Nuestra historia comenzó hace cuatro años,
+            con Dios como centro de nuestro amor.
+            Juntos hemos crecido, superado desafíos
+            y aprendido a elegirnos cada día.
+
+            <br><br>
+
+            Hoy damos un nuevo paso para formar nuestro hogar,
+            confiando en que Dios seguirá guiando nuestra historia
+            y bendiciendo todo lo hermoso que está por venir.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTADOR
+===================================================== -->
+
+<section class="seccion">
+
+
+    <div class="contenedor centro">
+
+
+        <div class="etiqueta">
+
+            Falta muy poco
+
+        </div>
+
+
+        <h2>
+
+            Nuestro gran día
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ♡
+
+        </div>
+
+
+        <div class="contador">
+
+
+            <div>
+
+                <div
+                    class="numero"
+                    id="dias">
+
+                    00
+
+                </div>
+
+                <div class="nombre-tiempo">
+
+                    Días
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="numero"
+                    id="horas">
+
+                    00
+
+                </div>
+
+                <div class="nombre-tiempo">
+
+                    Horas
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="numero"
+                    id="minutos">
+
+                    00
+
+                </div>
+
+                <div class="nombre-tiempo">
+
+                    Minutos
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div
+                    class="numero"
+                    id="segundos">
+
+                    00
+
+                </div>
+
+                <div class="nombre-tiempo">
+
+                    Segundos
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FECHA
+===================================================== -->
+
+<section class="fecha">
+
+
+    <div class="etiqueta">
+
+        Reserva la fecha
+
+    </div>
+
+
+    <div class="fecha-grande">
+
+        05 · 12 · 2026
+
+    </div>
+
+
+    <p class="fecha-texto">
+
+        Sábado 5 de diciembre de 2026
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
+
+<section class="seccion historia">
+
+
+    <div class="contenedor centro">
+
+
+        <div class="etiqueta">
+
+            Nuestra historia
+
+        </div>
+
+
+        <h2>
+
+            Cuatro años de amor
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ✦
+
+        </div>
+
+
+        <p class="historia-texto">
+
+            Nuestra historia comenzó hace cuatro años,
+            con Dios como centro de nuestro amor.
+            Juntos hemos crecido, superado desafíos
+            y aprendido a elegirnos cada día.
+
+            <br><br>
+
+            Hoy damos un nuevo paso para formar nuestro hogar,
+            confiando en que Dios seguirá guiando nuestra historia
+            y bendiciendo todo lo hermoso que está por venir.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENTOS
+===================================================== -->
+
+<section class="seccion">
+
+
+    <div class="contenedor centro">
+
+
+        <div class="etiqueta">
+
+            Celebremos juntos
+
+        </div>
+
+
+        <h2>
+
+            El gran día
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ♡
+
+        </div>
+
+
+        <div class="eventos">
+
+
+            <div class="evento">
+
+
+                <div class="icono">
+
+                    ⛪
+
+                </div>
+
+
+                <div class="hora">
+
+                    6:00 PM
+
+                </div>
+
+
+                <div class="nombre-evento">
+
+                    Ceremonia
+
+                </div>
+
+
+                <p>
+
+                    Ceremonia religiosa
+                    en la iglesia.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="evento">
+
+
+                <div class="icono">
+
+                    🥂
+
+                </div>
+
+
+                <div class="hora">
+
+                    7:00 PM
+
+                </div>
+
+
+                <div class="nombre-evento">
+
+                    Recepción
+
+                </div>
+
+
+                <p>
+
+                    Después de la ceremonia
+                    celebraremos juntos
+                    este momento especial.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     DRESS CODE
+===================================================== -->
+
+<section class="seccion dress">
+
+
+    <div class="contenedor centro">
+
+
+        <div class="etiqueta">
+
+            Código de vestimenta
+
+        </div>
+
+
+        <h2>
+
+            Dress Code
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ✦
+
+        </div>
+
+
+        <p class="texto">
+
+            Queremos que seas parte de este día
+            tan especial. Te invitamos a vestir
+            de acuerdo con el código de vestimenta
+            indicado.
+
+        </p>
+
+
+        <img
+            src="DRESS CODE.jpeg"
+            class="dress-imagen"
+            alt="Código de vestimenta"
+        >
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="seccion">
+
+
+    <div class="contenedor centro">
+
+
+        <div class="etiqueta">
+
+            Nuestros momentos
+
+        </div>
+
+
+        <h2>
+
+            Nuestra historia en imágenes
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ♡
+
+        </div>
+
+
+        <div class="galeria">
+
+
+            <img
+                src="1.jpg"
+                alt="Fotografía de los novios"
+            >
+
+
+            <img
+                src="2.jpg"
+                alt="Fotografía de los novios"
+            >
+
+
+            <img
+                src="4.jpg"
+                alt="Fotografía de los novios"
+            >
+
+
+            <img
+                src="5.jpg"
+                alt="Fotografía de los novios"
+            >
+
+
+            <img
+                src="6.jpg"
+                alt="Fotografía de los novios"
+            >
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     LLUVIA DE SOBRES
+===================================================== -->
+
+<section class="seccion sobres">
+
+
+    <div class="contenedor">
+
+
+        <div class="etiqueta">
+
+            Un detalle de amor
+
+        </div>
+
+
+        <h2>
+
+            Lluvia de sobres
+
+        </h2>
+
+
+        <div class="sobre-icono">
+
+            ✉
+
+        </div>
+
+
+        <p class="sobre-texto">
+
+            Tu presencia es el mejor regalo
+            que podemos recibir.
+
+            <br><br>
+
+            Si deseas tener un detalle adicional
+            con nosotros, hemos preparado una
+
+            <strong>
+
+                lluvia de sobres.
+
+            </strong>
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SIN NIÑOS
+===================================================== -->
+
+<section class="adultos">
+
+
+    <div class="contenedor">
+
+
+        <div class="adorno">
+
+            ♡
+
+        </div>
+
+
+        <h2>
+
+            Celebración solo para adultos
+
+        </h2>
+
+
+        <p>
+
+            Queremos disfrutar esta celebración
+            en un ambiente especial junto
+            a nuestros invitados.
+
+            <br><br>
+
+            Agradecemos mucho su comprensión.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONFIRMACIÓN
+===================================================== -->
+
+<section
+    class="seccion confirmacion"
+    id="confirmar">
+
+
+    <div class="contenedor">
+
+
+        <div class="etiqueta">
+
+            Tu compañía es muy importante
+
+        </div>
+
+
+        <h2>
+
+            Confirma tu asistencia
+
+        </h2>
+
+
+        <div class="adorno">
+
+            ✦
+
+        </div>
+
+
+        <p class="confirmacion-texto">
+
+            Nos encantará saber que podremos
+            compartir este día tan especial contigo.
+
+        </p>
+
+
+        <form
+            class="confirmar-form"
+            id="formConfirmacion">
+
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe tu nombre"
+                autocomplete="name"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="boton-confirmar">
+
+                Confirmar asistencia ♥
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-script">
+
+        Con amor
+
+    </div>
+
+
+    <p>
+
+        Gracias por ser parte
+        de nuestra historia.
+
+    </p>
+
+
+    <p>
+
+        ♥
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+const musica =
+    document.getElementById("musica");
+
+
+const botonAbrir =
+    document.getElementById("botonAbrir");
+
+
+const pantallaInicial =
+    document.getElementById("pantallaInicial");
+
+
+const controlMusica =
+    document.getElementById("controlMusica");
+
+
+/*
+
+    Volumen de la música.
+    15% = música ambiental.
+
+*/
+
+musica.volume = 0.15;
+
+
+/* =====================================================
+   ABRIR INVITACIÓN
+===================================================== */
+
+botonAbrir.addEventListener(
+    "click",
+    async function() {
+
+
+        try {
+
+            musica.volume = 0.15;
+
+            await musica.play();
+
+            controlMusica.textContent =
+                "🔊 Música";
+
+        }
+
+        catch(error) {
+
+            console.log(
+                "No se pudo reproducir la música:",
+                error
+            );
+
+        }
+
+
+        pantallaInicial.classList.add(
+            "ocultar"
+        );
+
+
+    }
+);
+
+
+/* =====================================================
+   BOTÓN SUPERIOR DE MÚSICA
+===================================================== */
+
+controlMusica.addEventListener(
+    "click",
+    async function() {
+
+
+        if (musica.paused) {
+
+
+            try {
+
+                await musica.play();
+
+                controlMusica.textContent =
+                    "🔊 Música";
+
+            }
+
+            catch(error) {
+
+                console.log(error);
+
+            }
+
+
+        }
+
+        else {
+
+
+            musica.pause();
+
+            controlMusica.textContent =
+                "▶ Música";
+
+
+        }
+
+
+    }
+);
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+const fechaBoda =
+    new Date(
+        "2026-12-05T18:00:00-05:00"
+    ).getTime();
+
+
+function actualizarContador() {
+
+
+    const ahora =
+        new Date().getTime();
+
+
+    const diferencia =
+        fechaBoda - ahora;
+
+
+    if (diferencia <= 0) {
+
+        document.getElementById("dias")
+            .textContent = "00";
+
+        document.getElementById("horas")
+            .textContent = "00";
+
+        document.getElementById("minutos")
+            .textContent = "00";
+
+        document.getElementById("segundos")
+            .textContent = "00";
+
+        return;
+
+    }
+
+
+    const dias =
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const horas =
+        Math.floor(
+            (diferencia %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutos =
+        Math.floor(
+            (diferencia %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const segundos =
+        Math.floor(
+            (diferencia %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("dias")
+        .textContent =
+        String(dias).padStart(2, "0");
+
+
+    document.getElementById("horas")
+        .textContent =
+        String(horas).padStart(2, "0");
+
+
+    document.getElementById("minutos")
+        .textContent =
+        String(minutos).padStart(2, "0");
+
+
+    document.getElementById("segundos")
+        .textContent =
+        String(segundos).padStart(2, "0");
+
+}
+
+
+actualizarContador();
+
+
+setInterval(
+    actualizarContador,
+    1000
+);
+
+
+/* =====================================================
+   CONFIRMACIÓN WHATSAPP
+===================================================== */
+
+const formulario =
+    document.getElementById(
+        "formConfirmacion"
+    );
+
+
+formulario.addEventListener(
+    "submit",
+    function(event) {
+
+
+        event.preventDefault();
+
+
+        const nombre =
+            document.getElementById(
+                "nombre"
+            ).value.trim();
+
+
+        if (!nombre) {
+
+            return;
+
+        }
+
+
+        const numeroWhatsApp =
+            "573014237704";
+
+
+        const texto =
+            "Hola 💍❤️, quiero confirmar mi asistencia a la boda.%0A%0ANombre: "
+            +
+            encodeURIComponent(nombre);
+
+
+        const enlace =
+            "https://wa.me/"
+            +
+            numeroWhatsApp
+            +
+            "?text="
+            +
+            texto;
+
+
+        window.open(
+            enlace,
+            "_blank"
+        );
+
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
